@@ -1,0 +1,31 @@
+package:
+  id: libdbusmenu-qt
+  name: libdbusmenu-qt
+  version: 0.9.3
+  kind: lib
+  description: |
+    libdbusmenu-qt.
+
+base:
+  id: org.deepin.base
+  version: 20.5.0
+
+depends:
+- id: qtbase
+  version: 5.11.3.15
+
+source:
+  kind: git
+  url: https://github.com/deepin-community/libdbusmenu-qt.git
+  version: eagle/0.9.3
+  commit: 7a8b6535ab0c12700ac91c80f9a0131db47f5732
+
+  patch:
+  - 0001-fix-action-icon-not-showing.patch
+variables:
+  extra_args: |
+    -DUSE_QT5=true \
+    -DWITH_DOC=false
+
+build:
+  kind: cmake

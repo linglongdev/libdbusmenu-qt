@@ -1,0 +1,24 @@
+From: zsien <i@zsien.cn>
+Date: Tue, 7 Feb 2023 13:25:03 +0800
+Subject: fix action icon not showing
+
+---
+ src/dbusmenuimporter.cpp | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/dbusmenuimporter.cpp b/src/dbusmenuimporter.cpp
+index 39f5995..e40cb73 100644
+--- a/src/dbusmenuimporter.cpp
++++ b/src/dbusmenuimporter.cpp
+@@ -577,9 +577,9 @@ QMenu *DBusMenuImporter::createMenu(QWidget *parent)
+     return new QMenu(parent);
+ }
+ 
+-QIcon DBusMenuImporter::iconForName(const QString &/*name*/)
++QIcon DBusMenuImporter::iconForName(const QString &name)
+ {
+-    return QIcon();
++    return QIcon::fromTheme(name);
+ }
+ 
+ #include "dbusmenuimporter.moc"
